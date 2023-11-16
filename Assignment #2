@@ -1,0 +1,44 @@
+import tkinter
+from tkinter import messagebox
+
+def welcome():
+    name = name_entry.get()
+    age = age_entry.get()
+    address = address_entry.get()
+
+    welcome_message = f"Hello, {name}!\nNice meeting you!\nYou are {age} years old. \nYou live at {address}."
+    messagebox.showinfo(title="Welcome!", message=welcome_message)
+
+window = tkinter.Tk()
+window.title("Get to know me")
+window.geometry('340x440')
+window.configure(bg='#1E212D')
+
+frame = tkinter.Frame(bg='#1E212D')
+
+welcome_label = tkinter.Label(
+    frame, text="Hello!", bg='#1E212D', fg="#CE5A67", font=("Arial", 30))
+name_label = tkinter.Label(
+    frame, text="Name", bg='#1E212D', fg="#FCF5ED", font=("Arial", 16))
+name_entry = tkinter.Entry(frame, font=("Arial", 16))
+age_label = tkinter.Label(
+    frame, text="Age", bg='#1E212D', fg="#FCF5ED", font=("Arial", 16))
+age_entry = tkinter.Entry(frame, font=("Arial", 16))
+address_label = tkinter.Label(
+    frame, text="Address", bg='#1E212D', fg="#FCF5ED", font=("Arial", 16))
+address_entry = tkinter.Entry(frame, font=("Arial", 16))
+welcome_button = tkinter.Button(
+    frame, text="Welcome!", bg="#CE5A67", fg="#FCF5ED", font=("Arial", 16), command=welcome)
+
+welcome_label.grid(row=0, column=0, columnspan=2, sticky="news", pady=40)
+name_label.grid(row=1, column=0)
+name_entry.grid(row=1, column=1, pady=20)
+age_label.grid(row=2, column=0)
+age_entry.grid(row=2, column=1, pady=20)
+address_label.grid(row=3, column=0)
+address_entry.grid(row=3, column=1, pady=20)
+welcome_button.grid(row=4, column=0, columnspan=2, pady=30)
+
+frame.pack()
+
+window.mainloop()
